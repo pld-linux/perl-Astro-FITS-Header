@@ -5,8 +5,8 @@
 %bcond_without	gsd	# don't build package with GSD support
 #
 %include	/usr/lib/rpm/macros.perl
-%define		pdir	Astro
-%define		pnam	FITS-Header
+%define	pdir	Astro
+%define	pnam	FITS-Header
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
