@@ -23,8 +23,8 @@ Summary(sv):	Astro::FITS::Header Perlmodul
 Summary(uk):	Модуль для Perl Astro::FITS::Header
 Summary(zh_CN):	Astro::FITS::Header Perl дё©И
 Name:		perl-Astro-FITS-Header
-Version:	2.4
-Release:	2
+Version:	2.6.1
+Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
