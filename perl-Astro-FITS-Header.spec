@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+# _with_ndf      - generate package with NDF support
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
 %define		pnam	FITS-Header
@@ -19,12 +23,11 @@ Summary(sv):	Astro::FITS::Header Perlmodul
 Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::Header
 Summary(zh_CN):	Astro::FITS::Header Perl Ä£¿é
 Name:		perl-Astro-FITS-Header
-Version:	2.2
+Version:	2.4
 Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
-Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-Patch0:		%{name}-CFITSIO.diff
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 BuildArch:	noarch
@@ -35,55 +38,10 @@ Astro::FITS::Header and associated sub-classes are tools for reading,
 modifying and then writing out FITS standard header blocks to FITS and
 NDF files.
 
-%description -l cs
-Modul Astro::FITS::Header pro Perl.
-
-%description -l da
-Perlmodul Astro::FITS::Header.
-
-%description -l de
-Astro::FITS::Header Perl Modul.
-
-%description -l es
-Módulo de Perl Astro::FITS::Header.
-
-%description -l fr
-Module Perl Astro::FITS::Header.
-
-%description -l it
-Modulo di Perl Astro::FITS::Header.
-
-%description -l ja
-Astro::FITS::Header Perl ¥â¥¸¥å¡¼¥ë
-
-%description -l ko
-Astro::FITS::Header ÆÞ ¸ðÁÙ.
-
-%description -l no
-Perlmodul Astro::FITS::Header.
-
 %description -l pl
 Astro::FITS::Header i stowarzyszone z nim podklasy stanowi± narzêdzie
 s³u¿±ce do odczytu bloków nag³ówków zgodnych ze standardem FITS w
 plikach FITS i NDF, a tak¿e do modyfikacji i zapisu tych bloków.
-
-%description -l pt
-Módulo de Perl Astro::FITS::Header.
-
-%description -l pt_BR
-Módulo Perl Astro::FITS::Header.
-
-%description -l ru
-íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::Header.
-
-%description -l sv
-Astro::FITS::Header Perlmodul.
-
-%description -l uk
-íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::Header.
-
-%description -l zh_CN
-Astro::FITS::Header Perl Ä£¿é
 
 %package CFITSIO
 Summary:	Astro::FITS::Header::CFITSIO Perl module
@@ -114,6 +72,7 @@ Astro::FITS::CFITSIO module to read and write directly to a FITS HDU.
 Modu³ Astro::FITS::Header::CFITSIO dokonuje bezpo¶redniego odczytu i
 zapisu FITS HDU za pomoc± modu³u Astro::FITS::CFITSIO.
 
+%if %{?_with_ndf:1}%{!?_with_ndf:0}
 %package NDF
 Summary:	Astro::FITS::Header::NDF Perl module
 Summary(cs):	Modul Astro::FITS::Header::NDF pro Perl
@@ -145,15 +104,16 @@ in an HDS container file.
 Modu³ Astro::FITS::Header::NDF odczytuje i zapisuje rozszerzenie NDF
 FITS lub blok ".HEADER" pliku pojemnika HDS za pomoc± modu³u Starlink
 NDF.
+%endif
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch -p1
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
-#%{__make} test
+
+%{!?_without_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -178,7 +138,9 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitelib}/Astro/FITS/Header/CFITSIO.pm
 %{_mandir}/man3/*CFITSIO*
 
+%if %{?_with_ndf:1}%{!?_with_ndf:0}
 %files NDF
 %defattr(644,root,root,755)
 %{perl_sitelib}/Astro/FITS/Header/NDF.pm
 %{_mandir}/man3/*NDF*
+%endif
