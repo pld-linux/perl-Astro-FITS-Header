@@ -10,19 +10,20 @@
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
-Version:	2.8.0
+Version:	2.8.1
 Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	89df33652240b104a085de890cb4b235
+# Source0-md5:	08ae3810997e4e5c92bd2f5013892cba
 %if %{with tests}
 BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
 %{?with_gsd:BuildRequires:	perl-GSD}
 %{?with_ndf:BuildRequires:	perl-NDF >= 1.42}
 %endif
-BuildRequires:	perl-devel >= 5.8.0
+BuildRequires:	perl-devel >= 5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	perl-base >= 5.8.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
