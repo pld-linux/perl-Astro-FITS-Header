@@ -21,7 +21,7 @@ BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
 %{?with_gsd:BuildRequires:	perl-GSD}
 %{?with_ndf:BuildRequires:	perl-NDF >= 1.42}
 %endif
-BuildRequires:	perl-devel >= 5.8.2
+BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-base >= 5.8.2
 BuildArch:	noarch
