@@ -11,7 +11,7 @@ Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
 Version:	2.8.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -41,7 +41,7 @@ plikach FITS i NDF, a tak¿e do modyfikacji i zapisu tych bloków.
 Summary:	Astro::FITS::Header::CFITSIO - manipulates FITS headers from a FITS file
 Summary(pl):	Astro::FITS::Header::CFITSIO - manipulowanie nag³ówkami FITS pliku FITS
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	perl-Astro-FITS-CFITSIO >= 1.01
 
 %description CFITSIO
@@ -57,7 +57,7 @@ Summary:	Astro::FITS::Header::NDF - manipulate FITS headers from NDF files
 Summary(pl):	Astro::FITS::Header::NDF - manipulowanie nag³ówkami FITS plików NDF
 Group:		Development/Languages/Perl
 # only for install dirs ?
-Requires:	%{name}
+Requires:	%{name} = %{version}-%{release}
 Requires:	perl-NDF >= 1.42
 
 %description NDF
@@ -74,7 +74,7 @@ NDF.
 Summary:	Astro::FITS::Header::GSD - manipulate FITS headers from GSD files
 Summary(pl):	Astro::FITS::Header::GSD - manipulowanie nag³ówkami FITS plików GSD
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description GSD
 Astro::FITS::Header::GSD module makes use of the Starlink GSD module
