@@ -2,6 +2,7 @@
 # Conditional build:
 # _without_tests - do not perform "make test"
 # _with_ndf      - generate package with NDF support
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
 %define		pnam	FITS-Header
@@ -23,13 +24,13 @@ Summary(sv):	Astro::FITS::Header Perlmodul
 Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::Header
 Summary(zh_CN):	Astro::FITS::Header Perl Ä£¿é
 Name:		perl-Astro-FITS-Header
-Version:	2.4
+Version:	2.6.1
 Release:	2
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+BuildRequires:	perl >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl >= 5.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,7 +73,6 @@ Astro::FITS::CFITSIO module to read and write directly to a FITS HDU.
 Modu³ Astro::FITS::Header::CFITSIO dokonuje bezpo¶redniego odczytu i
 zapisu FITS HDU za pomoc± modu³u Astro::FITS::CFITSIO.
 
-%if %{?_with_ndf:1}%{!?_with_ndf:0}
 %package NDF
 Summary:	Astro::FITS::Header::NDF Perl module
 Summary(cs):	Modul Astro::FITS::Header::NDF pro Perl
@@ -104,7 +104,6 @@ in an HDS container file.
 Modu³ Astro::FITS::Header::NDF odczytuje i zapisuje rozszerzenie NDF
 FITS lub blok ".HEADER" pliku pojemnika HDS za pomoc± modu³u Starlink
 NDF.
-%endif
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -130,9 +129,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/Astro/FITS
 %{perl_vendorlib}/Astro/FITS/Header.pm
 %dir %{perl_vendorlib}/Astro/FITS/Header
-%{perl_vendorlib}/Astro/FITS/Header/[^CN]*
+%{perl_vendorlib}/Astro/FITS/Header/[!CN]*
 %{_mandir}/man3/Astro::FITS::Header.*
-%{_mandir}/man3/Astro::FITS::Header::[^CN]*
+%{_mandir}/man3/Astro::FITS::Header::[!CN]*
 
 %files CFITSIO
 %defattr(644,root,root,755)
