@@ -1,8 +1,8 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
-# _with_ndf      - generate package with NDF support
-# _with_gsd      - generate package with GSD support
+%bcond_without	tests	# do not perform "make test"
+%bcond_with	ndf	# generate package with NDF support
+%bcond_with	gsd	# generate package with GSD support
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
@@ -10,12 +10,15 @@
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
-Version:	2.7.1
+Version:	2.8.0
 Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	fc086c900775793227c1ca1d576ed0f6
+# Source0-md5:	89df33652240b104a085de890cb4b235
+%if %{with tests}
+BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
+%endif
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -35,7 +38,8 @@ plikach FITS i NDF, a tak¿e do modyfikacji i zapisu tych bloków.
 Summary:	Astro::FITS::Header::CFITSIO - manipulates FITS headers from a FITS file
 Summary(pl):	Astro::FITS::Header::CFITSIO - manipulowanie nag³ówkami FITS pliku FITS
 Group:		Development/Languages/Perl
-Requires:	%{name}
+Requires:	%{name} = %{version}
+Requires:	perl-Astro-FITS-CFITSIO >= 1.01
 
 %description CFITSIO
 Astro::FITS::Header::CFITSIO module makes use of the
@@ -51,6 +55,7 @@ Summary(pl):	Astro::FITS::Header::NDF - manipulowanie nag³ówkami FITS plików NDF
 Group:		Development/Languages/Perl
 # only for install dirs ?
 Requires:	%{name}
+Requires:	perl-NDF >= 1.42
 
 %description NDF
 Astro::FITS::Header::NDF module makes use of the Starlink NDF module
@@ -66,7 +71,7 @@ NDF.
 Summary:	Astro::FITS::Header::GSD - manipulate FITS headers from GSD files
 Summary(pl):	Astro::FITS::Header::GSD - manipulowanie nag³ówkami FITS plików GSD
 Group:		Development/Languages/Perl
-Requires:	%{name}
+Requires:	%{name} = %{version}
 
 %description GSD
 Astro::FITS::Header::GSD module makes use of the Starlink GSD module
@@ -84,12 +89,13 @@ Starlink GSD.
 	INSTALLDIRS=vendor
 %{__make}
 
-%{!?_without_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,14 +115,14 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Astro/FITS/Header/CFITSIO.pm
 %{_mandir}/man3/*CFITSIO*
 
-%if 0%{?_with_ndf:1}
+%if %{with ndf}
 %files NDF
 %defattr(644,root,root,755)
 %{perl_vendorlib}/Astro/FITS/Header/NDF.pm
 %{_mandir}/man3/*NDF*
 %endif
 
-%if 0%{?_with_gsd:1}
+%if %{with gsd}
 %files GSD
 %defattr(644,root,root,755)
 %{perl_vendorlib}/Astro/FITS/Header/GSD.pm
