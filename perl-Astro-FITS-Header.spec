@@ -12,7 +12,7 @@ Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
 Version:	2.8.1
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	08ae3810997e4e5c92bd2f5013892cba
