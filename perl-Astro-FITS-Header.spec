@@ -1,8 +1,8 @@
 #
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
-%bcond_with	ndf	# generate package with NDF support
-%bcond_with	gsd	# generate package with GSD support
+%bcond_without	ndf	# don't build package with NDF support
+%bcond_without	gsd	# don't build package with GSD support
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
@@ -18,6 +18,8 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 # Source0-md5:	89df33652240b104a085de890cb4b235
 %if %{with tests}
 BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
+%{?with_gsd:BuildRequires:	perl-GSD}
+%{?with_ndf:BuildRequires:	perl-NDF >= 1.42}
 %endif
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
