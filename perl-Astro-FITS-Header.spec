@@ -23,12 +23,11 @@ Summary(sv):	Astro::FITS::Header Perlmodul
 Summary(uk):	Модуль для Perl Astro::FITS::Header
 Summary(zh_CN):	Astro::FITS::Header Perl дё©И
 Name:		perl-Astro-FITS-Header
-Version:	2.2
-Release:	2
+Version:	2.4
+Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-Patch0:		%{name}-CFITSIO.diff
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 BuildArch:	noarch
@@ -109,7 +108,6 @@ NDF.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch -p1
 
 %build
 perl Makefile.PL
