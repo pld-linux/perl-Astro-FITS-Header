@@ -1,0 +1,53 @@
+--- Astro-FITS-Header-2.2.orig/CFITSIO/CFITSIO.pm	Wed Jul 24 23:04:43 2002
++++ Astro-FITS-Header-2.2/CFITSIO/CFITSIO.pm	Wed Jul 24 23:13:55 2002
+@@ -50,7 +50,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-This module makes use of the L<CFITSIO|CFITSIO> module to read and write 
++This module makes use of the L<Astro::FITS::CFITSIO|Astro::FITS::CFITSIO> module to read and write 
+ directly to a FITS HDU.
+ 
+ It stores information about a FITS header block in an object. Takes an hash as an arguement, with either an array reference pointing to an array of FITS header cards, or a filename, or (alternatively) and FITS identifier.
+@@ -65,7 +65,7 @@
+ use Astro::FITS::Header::Item;
+ use base qw/ Astro::FITS::Header /;
+ 
+-use CFITSIO qw / :longnames :constants /;
++use Astro::FITS::CFITSIO qw / :longnames :constants /;
+ use Carp;
+ 
+ '$Revision$ ' =~ /.*:\s(.*)\s\$/ && ($VERSION = $1);
+@@ -108,7 +108,7 @@
+   if (exists $args{fitsID}) {
+      $ifits = $args{fitsID};
+   } elsif (exists $args{File}) {
+-     $ifits = CFITSIO::open_file( $args{File}, CFITSIO::READWRITE(), $status );
++     $ifits = Astro::FITS::CFITSIO::open_file( $args{File}, Astro::FITS::CFITSIO::READWRITE(), $status );
+   } else {
+      croak("Arguement hash does not contain fitsID, File or Cards");
+   }
+@@ -179,7 +179,7 @@
+   if (exists $args{fitsID}) {
+      $ifits = $args{fitsID};
+   } elsif (exists $args{File}) {
+-     $ifits = CFITSIO::open_file( $args{File}, CFITSIO::READWRITE(), $status );
++     $ifits = Astro::FITS::CFITSIO::open_file( $args{File}, Astro::FITS::CFITSIO::READWRITE(), $status );
+   } else {
+      croak("Argument hash does not contain fitsID, File or Cards");
+   }
+@@ -238,12 +238,12 @@
+ 
+ =head1 NOTES
+ 
+-This module requires Pete Ratzlaff's L<CFITSIO|CFITSIO> module, 
++This module requires Pete Ratzlaff's L<Astro::FITS::CFITSIO|Astro::FITS::CFITSIO> module, 
+ and  William Pence's C<cfitsio> subroutine library (v2.1 or greater).
+ 
+ =head1 SEE ALSO
+ 
+-L<Astro::FITS::Header>, L<Astro::FITS::Header::Item>, L<Astro::FITS::Header::NDF>, L<CFITSIO>
++L<Astro::FITS::Header>, L<Astro::FITS::Header::Item>, L<Astro::FITS::Header::NDF>, L<Astro::FITS::CFITSIO>
+ 
+ =head1 AUTHORS
+ 
