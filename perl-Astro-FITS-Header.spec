@@ -10,12 +10,12 @@
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl):	Modu³ Perla Astro::FITS::Header - nag³ówek FITS
 Name:		perl-Astro-FITS-Header
-Version:	2.6.1
-Release:	3
+Version:	2.7.1
+Release:	1
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	64e8a0c677ff02188a1784b5b27bcff9
+# Source0-md5:	fc086c900775793227c1ca1d576ed0f6
 BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
