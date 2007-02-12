@@ -8,7 +8,7 @@
 %define		pdir	Astro
 %define		pnam	FITS-Header
 Summary:	Astro::FITS::Header Perl module - a FITS header
-Summary(pl):	Modu≥ Perla Astro::FITS::Header - nag≥Ûwek FITS
+Summary(pl.UTF-8):   Modu≈Ç Perla Astro::FITS::Header - nag≈Ç√≥wek FITS
 Name:		perl-Astro-FITS-Header
 Version:	2.8.1
 Release:	2
@@ -32,14 +32,14 @@ Astro::FITS::Header and associated sub-classes are tools for reading,
 modifying and then writing out FITS standard header blocks to FITS and
 NDF files.
 
-%description -l pl
-Astro::FITS::Header i stowarzyszone z nim podklasy stanowi± narzÍdzie
-s≥uø±ce do odczytu blokÛw nag≥ÛwkÛw zgodnych ze standardem FITS w
-plikach FITS i NDF, a takøe do modyfikacji i zapisu tych blokÛw.
+%description -l pl.UTF-8
+Astro::FITS::Header i stowarzyszone z nim podklasy stanowiƒÖ narzƒôdzie
+s≈Çu≈ºƒÖce do odczytu blok√≥w nag≈Ç√≥wk√≥w zgodnych ze standardem FITS w
+plikach FITS i NDF, a tak≈ºe do modyfikacji i zapisu tych blok√≥w.
 
 %package CFITSIO
 Summary:	Astro::FITS::Header::CFITSIO - manipulates FITS headers from a FITS file
-Summary(pl):	Astro::FITS::Header::CFITSIO - manipulowanie nag≥Ûwkami FITS pliku FITS
+Summary(pl.UTF-8):   Astro::FITS::Header::CFITSIO - manipulowanie nag≈Ç√≥wkami FITS pliku FITS
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 Requires:	perl-Astro-FITS-CFITSIO >= 1.01
@@ -48,13 +48,13 @@ Requires:	perl-Astro-FITS-CFITSIO >= 1.01
 Astro::FITS::Header::CFITSIO module makes use of the
 Astro::FITS::CFITSIO module to read and write directly to a FITS HDU.
 
-%description CFITSIO -l pl
-Modu≥ Astro::FITS::Header::CFITSIO dokonuje bezpo∂redniego odczytu i
-zapisu FITS HDU za pomoc± modu≥u Astro::FITS::CFITSIO.
+%description CFITSIO -l pl.UTF-8
+Modu≈Ç Astro::FITS::Header::CFITSIO dokonuje bezpo≈õredniego odczytu i
+zapisu FITS HDU za pomocƒÖ modu≈Çu Astro::FITS::CFITSIO.
 
 %package NDF
 Summary:	Astro::FITS::Header::NDF - manipulate FITS headers from NDF files
-Summary(pl):	Astro::FITS::Header::NDF - manipulowanie nag≥Ûwkami FITS plikÛw NDF
+Summary(pl.UTF-8):   Astro::FITS::Header::NDF - manipulowanie nag≈Ç√≥wkami FITS plik√≥w NDF
 Group:		Development/Languages/Perl
 # only for install dirs ?
 Requires:	%{name} = %{version}-%{release}
@@ -65,14 +65,14 @@ Astro::FITS::Header::NDF module makes use of the Starlink NDF module
 to read and write to and NDF FITS extension or to a ".HEADER" block
 in an HDS container file.
 
-%description NDF -l pl
-Modu≥ Astro::FITS::Header::NDF odczytuje i zapisuje rozszerzenie NDF
-FITS lub blok ".HEADER" pliku pojemnika HDS za pomoc± modu≥u Starlink
+%description NDF -l pl.UTF-8
+Modu≈Ç Astro::FITS::Header::NDF odczytuje i zapisuje rozszerzenie NDF
+FITS lub blok ".HEADER" pliku pojemnika HDS za pomocƒÖ modu≈Çu Starlink
 NDF.
 
 %package GSD
 Summary:	Astro::FITS::Header::GSD - manipulate FITS headers from GSD files
-Summary(pl):	Astro::FITS::Header::GSD - manipulowanie nag≥Ûwkami FITS plikÛw GSD
+Summary(pl.UTF-8):   Astro::FITS::Header::GSD - manipulowanie nag≈Ç√≥wkami FITS plik√≥w GSD
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -80,8 +80,8 @@ Requires:	%{name} = %{version}-%{release}
 Astro::FITS::Header::GSD module makes use of the Starlink GSD module
 to read from a GSD header.
 
-%description GSD -l pl
-Modu≥ Astro::FITS::Header::GSD odczytuje nag≥Ûwek GSD za pomoc± modu≥u
+%description GSD -l pl.UTF-8
+Modu≈Ç Astro::FITS::Header::GSD odczytuje nag≈Ç√≥wek GSD za pomocƒÖ modu≈Çu
 Starlink GSD.
 
 %prep
