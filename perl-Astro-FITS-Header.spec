@@ -8,7 +8,7 @@
 %define		pdir	Astro
 %define		pnam	FITS-Header
 Summary:	Astro::FITS::Header Perl module - a FITS header
-Summary(pl.UTF-8):   Moduł Perla Astro::FITS::Header - nagłówek FITS
+Summary(pl.UTF-8):	Moduł Perla Astro::FITS::Header - nagłówek FITS
 Name:		perl-Astro-FITS-Header
 Version:	2.8.1
 Release:	2
@@ -39,7 +39,7 @@ plikach FITS i NDF, a także do modyfikacji i zapisu tych bloków.
 
 %package CFITSIO
 Summary:	Astro::FITS::Header::CFITSIO - manipulates FITS headers from a FITS file
-Summary(pl.UTF-8):   Astro::FITS::Header::CFITSIO - manipulowanie nagłówkami FITS pliku FITS
+Summary(pl.UTF-8):	Astro::FITS::Header::CFITSIO - manipulowanie nagłówkami FITS pliku FITS
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 Requires:	perl-Astro-FITS-CFITSIO >= 1.01
@@ -54,7 +54,7 @@ zapisu FITS HDU za pomocą modułu Astro::FITS::CFITSIO.
 
 %package NDF
 Summary:	Astro::FITS::Header::NDF - manipulate FITS headers from NDF files
-Summary(pl.UTF-8):   Astro::FITS::Header::NDF - manipulowanie nagłówkami FITS plików NDF
+Summary(pl.UTF-8):	Astro::FITS::Header::NDF - manipulowanie nagłówkami FITS plików NDF
 Group:		Development/Languages/Perl
 # only for install dirs ?
 Requires:	%{name} = %{version}-%{release}
@@ -72,7 +72,7 @@ NDF.
 
 %package GSD
 Summary:	Astro::FITS::Header::GSD - manipulate FITS headers from GSD files
-Summary(pl.UTF-8):   Astro::FITS::Header::GSD - manipulowanie nagłówkami FITS plików GSD
+Summary(pl.UTF-8):	Astro::FITS::Header::GSD - manipulowanie nagłówkami FITS plików GSD
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
