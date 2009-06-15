@@ -10,16 +10,14 @@
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl.UTF-8):	Moduł Perla Astro::FITS::Header - nagłówek FITS
 Name:		perl-Astro-FITS-Header
-Version:	2.8.1
-Release:	2
+Version:	3.01
+Release:	1
 License:	GPL v2+
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	08ae3810997e4e5c92bd2f5013892cba
+# Source0-md5:	d3c412321625f902b95a50be20f21d6d
 %if %{with tests}
 BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
-%{?with_gsd:BuildRequires:	perl-GSD}
-%{?with_ndf:BuildRequires:	perl-NDF >= 1.42}
 %endif
 BuildRequires:	perl-devel >= 1:5.8.2
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -62,8 +60,8 @@ Requires:	perl-NDF >= 1.42
 
 %description NDF
 Astro::FITS::Header::NDF module makes use of the Starlink NDF module
-to read and write to and NDF FITS extension or to a ".HEADER" block
-in an HDS container file.
+to read and write to and NDF FITS extension or to a ".HEADER" block in
+an HDS container file.
 
 %description NDF -l pl.UTF-8
 Moduł Astro::FITS::Header::NDF odczytuje i zapisuje rozszerzenie NDF
@@ -110,8 +108,10 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Astro/FITS/Header.pm
 %dir %{perl_vendorlib}/Astro/FITS/Header
 %{perl_vendorlib}/Astro/FITS/Header/Item*
+%{perl_vendorlib}/Astro/FITS/Header/AST.pm
 %{_mandir}/man3/Astro::FITS::Header.*
 %{_mandir}/man3/Astro::FITS::Header::Item*
+%{_mandir}/man3/Astro::FITS::Header::AST.3pm*
 
 %files CFITSIO
 %defattr(644,root,root,755)
