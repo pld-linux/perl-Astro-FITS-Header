@@ -10,12 +10,12 @@
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl.UTF-8):	Moduł Perla Astro::FITS::Header - nagłówek FITS
 Name:		perl-Astro-FITS-Header
-Version:	3.01
+Version:	3.07
 Release:	1
 License:	GPL v2+
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d3c412321625f902b95a50be20f21d6d
+# Source0-md5:	3a9795ecc74269419340e900018a5840
 %if %{with tests}
 BuildRequires:	perl-Astro-FITS-CFITSIO >= 1.01
 %endif
@@ -86,24 +86,25 @@ Starlink GSD.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
-%{__make}
+%{__perl} Build.PL \
+	installdirs=vendor
+./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install \
+	prefix=%{_prefix} \
+	destdir=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO
+%doc README TODO
 %dir %{perl_vendorlib}/Astro/FITS
 %{perl_vendorlib}/Astro/FITS/Header.pm
 %dir %{perl_vendorlib}/Astro/FITS/Header
