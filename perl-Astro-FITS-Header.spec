@@ -1,8 +1,8 @@
 #
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
-%bcond_without	ndf	# don't build package with NDF support
-%bcond_without	gsd	# don't build package with GSD support
+%bcond_with	ndf	# build package with NDF support
+%bcond_with	gsd	# build package with GSD support
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
@@ -11,7 +11,7 @@ Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl.UTF-8):	Moduł Perla Astro::FITS::Header - nagłówek FITS
 Name:		perl-Astro-FITS-Header
 Version:	3.07
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
