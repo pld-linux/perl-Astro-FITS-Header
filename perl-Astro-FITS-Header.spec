@@ -6,7 +6,6 @@
 
 %define		pdir	Astro
 %define		pnam	FITS-Header
-%include	/usr/lib/rpm/macros.perl
 Summary:	Astro::FITS::Header Perl module - a FITS header
 Summary(pl.UTF-8):	Moduł Perla Astro::FITS::Header - nagłówek FITS
 Name:		perl-Astro-FITS-Header
